@@ -1,0 +1,33 @@
+﻿<Window x:Class="WPFMVVMWithStructureMap.Windows.ModalWindow.ModalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}"
+        Height="500"
+        Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="{Binding Title}"
+                   Style="{StaticResource ModalTitle}"/>
+        
+        <ContentControl Content="{Binding View}"
+                        Grid.Row="1"/>
+        
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.Row="2">
+            
+            <Button Content="Cancel"
+                    Command="{Binding CancelCommand}"/>
+            
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
